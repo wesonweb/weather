@@ -4,8 +4,18 @@ This app is based on the MERN stack. It uses express and node to make the openwe
 
 ## How to run this app
 
-`cd server` then `npm run dev`
+The app is still in progress...
 
-`cd client` then `npm run dev`
+### start the server
+
+- `cd server`
+- `npm install`
+- `npm run dev`
+
+### start Vite
+
+- `cd client`
+- `npm install`
+- `npm run dev`
 
 *you will require your own API key* which can be obtained from [openweathermap.org](https://openweathermap.org/)
