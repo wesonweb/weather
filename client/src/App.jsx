@@ -1,6 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import Form from './components/Form'
+import { round } from '../helpers/helpers'
 
 function App() {
 
@@ -51,13 +52,13 @@ function App() {
           <h2>{weatherResults.name}</h2>
           <p>Latitude: {coord.lat}</p>
           <p>Longitude: {coord.lon}</p>
-          <p>Temperature: {main.temp}</p>
-          <p>Temperature max: {main.temp_max}</p>
-          <p>Temperature min: {main.temp_min}</p>
-          <p>Feels Like: {main.feels_like}</p>
+          <p>Temperature: {round(main.temp)}</p>
+          <p>Temperature max: {round(main.temp_max)}</p>
+          <p>Temperature min: {round(main.temp_min)}</p>
+          <p>Feels Like: {round(main.feels_like)}</p>
           <p>Humidity: {main.humidity}</p>
           <p>Pressure: {main.pressure}</p>
-          <p>Wind Speed: {wind.speed}</p>
+          <p>Wind Speed: {round(wind.speed)}</p>
           <p>Wind Direction: {wind.deg}</p>
           <p>Clouds: {clouds.all}</p>
           <p>Country: {sys.country}</p>
