@@ -14,6 +14,8 @@ The app is still in progress...
 
 ### start Vite
 
+return to the root folder and then type into the terminal
+
 - `cd client`
 - `npm install`
 - `npm run dev`
