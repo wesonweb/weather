@@ -1,7 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import Form from './components/Form'
-import { round } from '../helpers/helpers'
+import WeatherResults from './components/WeatherResults'
 
 function App() {
 
@@ -33,46 +33,28 @@ function App() {
     }
   }
 
-  const { clouds, coord, main, sys, weather, wind } = weatherResults || {}
-  const cityNotFound = weatherResults?.cod === '404' ? <p className="text-center mt-2">City not found</p> : null
+
+  const cityNotFound = weatherResults?.cod === '404' ? <p className="text-center mt-2">City not found. Please try again</p> : null
 
   return (
-    <>
-    <h1>Weather</h1>
-    <Form
-      location={location}
-      setLocation={setLocation}
-      handleSubmit={handleSubmit}
-    />
-    {cityNotFound}
+    <article className="weatherApp">
+      <div className="weatherContainer">
 
-    <div className="weather-results">
-      {weatherResults && !cityNotFound &&
-        <>
-          <h2>{weatherResults.name}</h2>
-          <p>Latitude: {coord.lat}</p>
-          <p>Longitude: {coord.lon}</p>
-          <p>Temperature: {round(main.temp)}</p>
-          <p>Temperature max: {round(main.temp_max)}</p>
-          <p>Temperature min: {round(main.temp_min)}</p>
-          <p>Feels Like: {round(main.feels_like)}</p>
-          <p>Humidity: {main.humidity}</p>
-          <p>Pressure: {main.pressure}</p>
-          <p>Wind Speed: {round(wind.speed)}</p>
-          <p>Wind Direction: {wind.deg}</p>
-          <p>Clouds: {clouds.all}</p>
-          <p>Country: {sys.country}</p>
-          <p>Sunrise: {sys.sunrise}</p>
-          <p>Sunset: {sys.sunset}</p>
-          <p>Weather: {weather[0].main}</p>
-          <p>Description: {weather[0].description}</p>
-          <p>Main summary: {weather[0].main}</p>
-          <p>Icon: {weather[0].icon}</p>
-          <p>ID: {weather[0].id}</p>
-        </>
-      }
-    </div>
-    </>
+        <Form
+          location={location}
+          setLocation={setLocation}
+          handleSubmit={handleSubmit}
+        />
+
+      {cityNotFound}
+
+      <WeatherResults
+        weatherResults={weatherResults}
+        cityNotFound={cityNotFound}
+      />
+
+      </div>
+    </article>
   )
 }
 

@@ -16,6 +16,7 @@ app.post('/', async (req, res) => {
     const url =  `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${WEATHER_API_KEY}`
     const weatherData = await fetch(url).then(res => res.json())
     res.json(weatherData).status(200)
+    console.log(weatherData)
   } catch (err) {
     res.status(400).json({ message: `Something went wrong`, error: err })
     console.log(err)
