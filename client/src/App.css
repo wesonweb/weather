@@ -1,0 +1,36 @@
+body {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  color: #002550;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 18px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(70 123 221) 0%, rgb(0 37 80) 65%);
+}
+
+.weatherApp {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.weatherContainer {
+  width: calc(100% - 40px);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 600px;
+  background: #48BFB9;
+  place-self: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
