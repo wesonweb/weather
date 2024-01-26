@@ -1,17 +1,32 @@
+:root {
+  --clr-primary:  #002550;
+  --clr-secondary: #153a38;
+
+}
+
 body {
-  font-family: "Poppins", Helvetica, Arial, sans-serif;
-  color: #002550;
+  font-family: "Sora", Helvetica, Arial, sans-serif;
+  color: var(--clr-primary);
   line-height: 1.5;
   font-weight: 400;
   font-size: 18px;
   width: 100%;
-  background: linear-gradient(180deg, rgba(70 123 221) 0%, rgb(0 37 80) 65%);
 }
 
 .weatherApp {
   min-height: 100vh;
   display: grid;
   align-items: center;
+  background: linear-gradient(180deg, rgba(70 123 221) 0%, rgb(0 37 80) 65%);
+}
+
+.daytime {
+  background: url(./assets/daytime-bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.nighttime {
+  background: url(./assets/starry-bg.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .weatherContainer {
@@ -26,9 +41,20 @@ body {
 
 h1 {
   font-size: 3em;
-  text-align: center;
   margin: 0;
   padding: 0;
+}
+
+
+.flex-align-justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-align-justify-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mt-2 {

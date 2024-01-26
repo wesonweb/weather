@@ -1,5 +1,90 @@
 .cityName {
-  margin: 1rem auto;
-  font-size: 2rem;
+  margin: 1rem auto 0;
+  letter-spacing: 5px;
+  font-size: 3.75rem;
   text-align: center;
+}
+
+.country {
+  color: var(--clr-secondary);
+  display: block;
+  font-size: 1.75rem;
+  text-align: center;
+}
+.time {
+  color: var(--clr-secondary);
+  display: block;
+  margin-top: 12px;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.weather__temperature {
+  margin: 2rem auto 0;
+  gap: 2rem;
+}
+
+.weather__description {
+  margin-top: -1.5rem;
+}
+
+.weather__current-temp {
+  display: block;
+  font-size: 8rem;
+  text-align: center;
+}
+
+.weather__summary {
+  color: var(--clr-secondary);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.weather__icon-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.weather__description {
+  display: flex;
+}
+
+.weather__sunrise-sunset {
+  margin: 2rem auto 3rem;
+  gap: 2rem;
+}
+
+.weather__sunrise-sunset p {
+  display: flex;
+  align-items: center;
+}
+
+/* icons */
+.deg {
+  font-size: 3rem;
+  vertical-align: super;
+}
+.deg--small {
+  font-size: 80%;
+}
+.icon {
+  color: var(--clr-secondary);
+  font-size: 1.55rem;
+}
+.icon.icon--mtsm {
+  margin-top: 4px;
+}
+.icon.icon--mtmd {
+  margin-top: 8px;
+}
+.icon.icon--memd {
+  margin-right: 8px;
+}
+
+.sunrise {
+  color: #f9ecb2;
+}
+
+.sunset {
+  color: #bb761b;
 }

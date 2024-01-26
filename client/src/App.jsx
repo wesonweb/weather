@@ -9,6 +9,22 @@ function App() {
   const [weatherResults, setWeatherResults] = useState(null)
   const [error, setError] = useState(false)
 
+  const timezone = weatherResults?.timezone ? weatherResults.timezone : 0
+
+  const { sunrise, sunset } = weatherResults?.sys || {}
+  const bstOffset = new Date().getTimezoneOffset() * 60 // BST offset in seconds
+  const currentUTCTime = Math.floor((new Date().getTime() / 1000) + bstOffset) // UTC in seconds
+  const utcAtLocation = currentUTCTime + timezone // UTC at location in seconds
+  const timeAtLocation = new Date(utcAtLocation * 1000).toLocaleTimeString('en-GB', {timeStyle: 'short'}) // time converted to local time
+  console.log('time here is', timeAtLocation);
+
+  const sunriseTime = new Date((sunrise + timezone) * 1000).toLocaleTimeString('en-GB', {timeStyle: 'short'})
+  const sunsetTime = new Date((sunset + timezone) * 1000).toLocaleTimeString('en-GB', {timeStyle: 'short'})
+
+  const isDayTime = timeAtLocation > sunriseTime && timeAtLocation < sunsetTime
+  const isNightTime = !isDayTime
+  const noData = !weatherResults
+
   const handleSubmit = (e) => {
     e.preventDefault()
     location !== '' ? getWeather() : alert('Please enter a location')
@@ -33,14 +49,28 @@ function App() {
     }
   }
 
-
-  const cityNotFound = weatherResults?.cod === '404' ? <p className="text-center mt-2">City not found. Please try again</p> : null
+  const cityNotFound = weatherResults?.cod === '404'
+    ? <p className="text-center mt-2">City not found. Please enter a different city</p>
+    : null
 
   return (
-    <article className="weatherApp">
+    <article className={
+        noData ? "weatherApp"
+        : isDayTime ? "weatherApp daytime"
+        : isNightTime ? "weatherApp nighttime"
+        : null
+        }>
       <div className="weatherContainer">
 
-        <Form
+      <WeatherResults
+        weatherResults={weatherResults}
+        cityNotFound={cityNotFound}
+        timeAtLocation={timeAtLocation}
+        sunriseTime={sunriseTime}
+        sunsetTime={sunsetTime}
+      />
+
+      <Form
           location={location}
           setLocation={setLocation}
           handleSubmit={handleSubmit}
@@ -48,12 +78,7 @@ function App() {
 
       {cityNotFound}
 
-      <WeatherResults
-        weatherResults={weatherResults}
-        cityNotFound={cityNotFound}
-      />
-
-      </div>
+    </div>
     </article>
   )
 }

@@ -1,35 +1,74 @@
 import PropTypes from 'prop-types'
+import { MdArrowDownward, MdArrowUpward, MdAccessTime } from "react-icons/md"
+import { GiSunrise, GiSunset } from "react-icons/gi"
+import countries from 'i18n-iso-countries'
+import enLocale from 'i18n-iso-countries/langs/en.json'
+countries.registerLocale(enLocale)
 import { round } from '../../helpers/helpers'
 import './WeatherResults.css'
 
-const WeatherResults = ({ weatherResults, cityNotFound }) => {
+const WeatherResults = ({ weatherResults, cityNotFound, timeAtLocation, sunriseTime, sunsetTime }) => {
 
-  const { clouds, coord, main, sys, weather, wind } = weatherResults || {}
+  const { main, sys, weather } = weatherResults || {}
+  const { country } = sys || {}
+  const { description, icon} = weather && weather[0] || {}
+  const { temp, temp_max, temp_min } = main || {}
 
   return (
-    <div className="weather-results">
+    <div className="weather__results">
         {weatherResults && !cityNotFound &&
           <>
             <h2 className="cityName">{weatherResults.name}</h2>
-            <p>Latitude: {coord.lat}</p>
-            <p>Longitude: {coord.lon}</p>
-            <p>Temperature: {round(main.temp)}</p>
-            <p>Temperature max: {round(main.temp_max)}</p>
-            <p>Temperature min: {round(main.temp_min)}</p>
-            <p>Feels Like: {round(main.feels_like)}</p>
-            <p>Humidity: {main.humidity}</p>
-            <p>Pressure: {main.pressure}</p>
-            <p>Wind Speed: {round(wind.speed)}</p>
-            <p>Wind Direction: {wind.deg}</p>
-            <p>Clouds: {clouds.all}</p>
-            <p>Country: {sys.country}</p>
-            <p>Sunrise: {sys.sunrise}</p>
-            <p>Sunset: {sys.sunset}</p>
-            <p>Weather: {weather[0].main}</p>
-            <p>Description: {weather[0].description}</p>
-            <p>Main summary: {weather[0].main}</p>
-            <p>Icon: {weather[0].icon}</p>
-            <p>ID: {weather[0].id}</p>
+            <span className="country">{countries.getName(`${country}`, 'en')} </span>
+              <div className="flex-align-justify-center weather__temperature">
+                <p
+                  className="weather__current-temp">
+                  {round(temp)}
+                  <span className="deg">&#8451;</span>
+                </p>
+                <div>
+                  <p className="weather__icon-container">
+                    <span className="icon icon--mtsm"><MdArrowUpward /></span>
+                    {round(temp_max)}
+                    <span className="deg--small">&#8451;</span>
+                  </p>
+                  <p className="weather__icon-container">
+                    <span className="icon icon--mtmd"><MdArrowDownward /></span>
+                    {round(temp_min)}
+                    <span className="deg--small">&#8451;</span>
+                  </p>
+                </div>
+              </div>
+            <div className="flex-align-justify-center weather__description">
+              <img
+              src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+              alt={description}
+              className="weather__icon"
+              />
+              <p className="weather__summary">{description}</p>
+            </div>
+            <div className="weather__sunrise-sunset flex-align-justify-center">
+              <p>
+                <MdAccessTime
+                size={32}
+                className="icon icon--memd"
+                />
+                {timeAtLocation}
+              </p>
+              <p><GiSunrise
+                size={40}
+                className="icon icon--memd sunrise"
+                />
+                {sunriseTime}
+              </p>
+              <p><GiSunset
+                size={40}
+                className="icon icon--memd sunset"
+                />
+                {sunsetTime}
+              </p>
+            </div>
+
           </>
         }
         </div>
@@ -40,5 +79,8 @@ export default WeatherResults
 
 WeatherResults.propTypes = {
   weatherResults: PropTypes.object,
-  cityNotFound: PropTypes.object
+  cityNotFound: PropTypes.object,
+  timeAtLocation: PropTypes.string,
+  sunriseTime: PropTypes.string,
+  sunsetTime: PropTypes.string,
 }
