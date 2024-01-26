@@ -11,13 +11,22 @@ body {
   font-weight: 400;
   font-size: 18px;
   width: 100%;
-  background: linear-gradient(180deg, rgba(70 123 221) 0%, rgb(0 37 80) 65%);
 }
 
 .weatherApp {
   min-height: 100vh;
   display: grid;
   align-items: center;
+  background: linear-gradient(180deg, rgba(70 123 221) 0%, rgb(0 37 80) 65%);
+}
+
+.daytime {
+  background: url(./assets/daytime-bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.nighttime {
+  background: url(./assets/starry-bg.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .weatherContainer {
@@ -32,7 +41,6 @@ body {
 
 h1 {
   font-size: 3em;
-  text-align: center;
   margin: 0;
   padding: 0;
 }
