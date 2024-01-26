@@ -1,35 +1,61 @@
 import PropTypes from 'prop-types'
+import { MdArrowDownward, MdArrowUpward } from "react-icons/md"
+import countries from 'i18n-iso-countries'
+import enLocale from 'i18n-iso-countries/langs/en.json'
+countries.registerLocale(enLocale)
 import { round } from '../../helpers/helpers'
 import './WeatherResults.css'
 
 const WeatherResults = ({ weatherResults, cityNotFound }) => {
 
-  const { clouds, coord, main, sys, weather, wind } = weatherResults || {}
+  const { main, sys, weather } = weatherResults || {}
+  const { country, sunrise, sunset } = sys || {}
+  const { description, icon} = weather && weather[0] || {}
+  const { temp, temp_max, temp_min } = main || {}
+  console.log(weather && weather[0]);
 
   return (
-    <div className="weather-results">
+    <div className="weather__results">
         {weatherResults && !cityNotFound &&
           <>
             <h2 className="cityName">{weatherResults.name}</h2>
-            <p>Latitude: {coord.lat}</p>
-            <p>Longitude: {coord.lon}</p>
-            <p>Temperature: {round(main.temp)}</p>
-            <p>Temperature max: {round(main.temp_max)}</p>
-            <p>Temperature min: {round(main.temp_min)}</p>
-            <p>Feels Like: {round(main.feels_like)}</p>
-            <p>Humidity: {main.humidity}</p>
-            <p>Pressure: {main.pressure}</p>
-            <p>Wind Speed: {round(wind.speed)}</p>
-            <p>Wind Direction: {wind.deg}</p>
-            <p>Clouds: {clouds.all}</p>
-            <p>Country: {sys.country}</p>
-            <p>Sunrise: {sys.sunrise}</p>
-            <p>Sunset: {sys.sunset}</p>
-            <p>Weather: {weather[0].main}</p>
-            <p>Description: {weather[0].description}</p>
-            <p>Main summary: {weather[0].main}</p>
-            <p>Icon: {weather[0].icon}</p>
-            <p>ID: {weather[0].id}</p>
+            <span className="country">{countries.getName(`${country}`, 'en')} </span>
+
+              <div className="flex-align-justify-center weather__temperature">
+
+                <p
+                  className="weather__current-temp">
+                  {round(temp)}
+                  <span className="deg">&#8451;</span>
+                </p>
+
+                <div>
+                  <p className="weather__icon-container">
+                    <span className="icon icon--mtsm"><MdArrowUpward /></span>
+                    {round(temp_max)}
+                    <span className="deg--small">&#8451;</span>
+                  </p>
+                  <p className="weather__icon-container">
+                    <span className="icon icon--mtmd"><MdArrowDownward /></span>
+                    {round(temp_min)}
+                    <span className="deg--small">&#8451;</span>
+                  </p>
+                </div>
+              </div>
+
+            <div className="flex-align-justify-center weather__description">
+              <img
+              src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+              alt={description}
+              className="weather__icon"
+              />
+              <p className="weather__summary">{description}</p>
+            </div>
+
+
+            <p>Sunrise: {sunrise}</p>
+            <p>Sunset: {sunset}</p>
+            {/* <p>ID: {weather[0].id}</p> */}
           </>
         }
         </div>

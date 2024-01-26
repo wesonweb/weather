@@ -1,8 +1,9 @@
-.weather-form {
+.form {
   margin-top: 2rem;
 }
 .subheading {
   font-size: 1.4rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 .flex {
@@ -20,4 +21,8 @@
 ::placeholder {
   font-size: 1rem;
   letter-spacing: 1px;
+}
+
+.visuallyhidden {
+  display: none;
 }

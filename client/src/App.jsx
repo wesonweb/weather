@@ -34,13 +34,20 @@ function App() {
   }
 
 
-  const cityNotFound = weatherResults?.cod === '404' ? <p className="text-center mt-2">City not found. Please try again</p> : null
+  const cityNotFound = weatherResults?.cod === '404'
+    ? <p className="text-center mt-2">City not found. Please enter a different city</p>
+    : null
 
   return (
     <article className="weatherApp">
       <div className="weatherContainer">
 
-        <Form
+      <WeatherResults
+        weatherResults={weatherResults}
+        cityNotFound={cityNotFound}
+      />
+
+      <Form
           location={location}
           setLocation={setLocation}
           handleSubmit={handleSubmit}
@@ -48,12 +55,7 @@ function App() {
 
       {cityNotFound}
 
-      <WeatherResults
-        weatherResults={weatherResults}
-        cityNotFound={cityNotFound}
-      />
-
-      </div>
+    </div>
     </article>
   )
 }

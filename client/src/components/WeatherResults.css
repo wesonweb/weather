@@ -1,5 +1,67 @@
 .cityName {
-  margin: 1rem auto;
-  font-size: 2rem;
+  margin: 1rem auto 0;
+  letter-spacing: 2px;
+  font-size: 3rem;
   text-align: center;
+}
+
+.country {
+  color: var(--clr-secondary);
+  display: block;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+
+.weather__temperature {
+  margin: 2rem auto;
+  gap: 2rem;
+}
+
+.weather__description {
+  margin-top: -1.5rem;
+}
+
+.weather__current-temp {
+  display: block;
+  font-size: 8rem;
+  text-align: center;
+}
+
+
+.weather__summary {
+  color: var(--clr-secondary);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.weather__icon-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.weather__description {
+  display: flex;
+}
+
+
+.deg {
+  font-size: 3rem;
+  vertical-align: super;
+}
+
+.deg--small {
+  font-size: 80%;
+}
+.icon {
+  font-size: 1.55rem;
+}
+
+.icon.icon--mtsm {
+  margin-top: 4px;
+}
+.icon.icon--mtmd {
+  margin-top: 8px;
 }
