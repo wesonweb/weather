@@ -21,7 +21,13 @@ const WeatherResults = ({ weatherResults, cityNotFound, timeAtLocation, sunriseT
           <>
             <h2 className="cityName">{weatherResults.name}</h2>
               <span className="country">{countries.getName(`${country}`, 'en')} </span>
+                <p className="weather__summary">{description}</p>
               <div className="flex-align-justify-center weather__temperature">
+                <img
+                  src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
+                  alt={description}
+                  className="weather__icon"
+                  />
                 <p
                   className="weather__current-temp">
                   {round(temp)}
@@ -41,12 +47,7 @@ const WeatherResults = ({ weatherResults, cityNotFound, timeAtLocation, sunriseT
                 </div>
               </div>
             <div className="flex-align-justify-center weather__description">
-              <img
-              src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-              alt={description}
-              className="weather__icon"
-              />
-              <p className="weather__summary">{description}</p>
+
             </div>
             <div className="weather__sunrise-sunset flex-align-justify-center">
               <p>

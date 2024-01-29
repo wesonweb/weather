@@ -51,7 +51,7 @@ function App() {
   }
 
   const cityNotFound = weatherResults?.cod === '404'
-    ? <p className="text-center mt-2">City not found. Please enter a different city</p>
+    ? <p className="text-center mt-2 error">City not found. Please enter a different city</p>
     : null
 
   return (
