@@ -4,6 +4,8 @@
   --day-bg: #7eb0d9;
   --night-bg: #050f20;
 
+  --error: #dc2c58;
+
 }
 
 body {
@@ -52,6 +54,9 @@ body {
   color: #c2c2c3;
 }
 
+.error {
+  color: var(--error);
+}
 h1 {
   font-size: 3em;
   margin: 0;
