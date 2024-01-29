@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "path": "^0.12.7",
     "weather-icons-react": "^1.2.0"
   }
 }

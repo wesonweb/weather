@@ -1,6 +1,8 @@
 :root {
   --clr-primary:  #002550;
   --clr-secondary: #153a38;
+  --day-bg: #7eb0d9;
+  --night-bg: #050f20;
 
 }
 
@@ -21,11 +23,11 @@ body {
 }
 
 .daytime {
-  background: url(./assets/daytime-bg.jpg) no-repeat center center fixed;
+  background: url(./assets/day-time.svg) no-repeat center center fixed;
     background-size: cover;
 }
 .nighttime {
-  background: url(./assets/starry-bg.jpg) no-repeat center center fixed;
+  background: url(./assets/night-sky.svg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -37,6 +39,17 @@ body {
   background: #48BFB9;
   place-self: center;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+.weatherContainer.daytime-bg {
+  background: var(--day-bg);
+}
+.weatherContainer.nighttime-bg {
+  background: var(--night-bg);
+}
+
+.weatherContainer.nighttime-bg * :not(input#location) {
+  color: #c2c2c3;
 }
 
 h1 {

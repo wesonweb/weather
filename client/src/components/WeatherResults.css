@@ -1,25 +1,27 @@
+.weather__results {
+  margin-bottom: 4rem;
+}
+
 .cityName {
   margin: 1rem auto 0;
   letter-spacing: 5px;
   font-size: 3.75rem;
+  font-weight: 700;
   text-align: center;
 }
 
 .country {
   color: var(--clr-secondary);
   display: block;
-  font-size: 1.75rem;
+  text-transform: uppercase;
+  font-size: 1.55rem;
+  font-weight: 300;
   text-align: center;
 }
-.time {
-  color: var(--clr-secondary);
-  display: block;
-  margin-top: 12px;
-  font-size: 1.25rem;
-  text-align: center;
-}
+
+
 .weather__temperature {
-  margin: 2rem auto 0;
+  margin: 1rem auto 0;
   gap: 2rem;
 }
 
@@ -35,7 +37,8 @@
 
 .weather__summary {
   color: var(--clr-secondary);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  font-weight: 300;
   text-align: center;
 }
 
@@ -68,8 +71,12 @@
   font-size: 80%;
 }
 .icon {
-  color: var(--clr-secondary);
-  font-size: 1.55rem;
+  color: var(--clr-primary);
+  /* font-size: 1.55rem; */
+}
+
+.icon--clock {
+  font-size: 1.65rem;
 }
 .icon.icon--mtsm {
   margin-top: 4px;

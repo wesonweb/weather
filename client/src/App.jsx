@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import Form from './components/Form'
 import WeatherResults from './components/WeatherResults'
+import WeatherIcon from './components/WeatherIcon'
 
 function App() {
 
@@ -60,22 +61,40 @@ function App() {
         : isNightTime ? "weatherApp nighttime"
         : null
         }>
-      <div className="weatherContainer">
 
-      <WeatherResults
-        weatherResults={weatherResults}
-        cityNotFound={cityNotFound}
-        timeAtLocation={timeAtLocation}
-        sunriseTime={sunriseTime}
-        sunsetTime={sunsetTime}
-      />
+      <div className={
+        noData ? "weatherContainer"
+        :isDayTime ? "weatherContainer daytime-bg"
+        : isNightTime ? "weatherContainer nighttime-bg"
+        : "weatherContainer"
+        }>
 
-      <Form
-          location={location}
-          setLocation={setLocation}
-          handleSubmit={handleSubmit}
+        <WeatherResults
+          weatherResults={weatherResults}
+          cityNotFound={cityNotFound}
+          timeAtLocation={timeAtLocation}
+          sunriseTime={sunriseTime}
+          sunsetTime={sunsetTime}
         />
 
+      {noData ?
+        <>
+          <WeatherIcon />
+          <Form
+            location={location}
+            setLocation={setLocation}
+            handleSubmit={handleSubmit}
+          />
+        </>
+        :
+        <>
+          <Form
+            location={location}
+            setLocation={setLocation}
+            handleSubmit={handleSubmit}
+          />
+        </>
+        }
       {cityNotFound}
 
     </div>

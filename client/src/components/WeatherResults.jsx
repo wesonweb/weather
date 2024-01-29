@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import { MdArrowDownward, MdArrowUpward, MdAccessTime } from "react-icons/md"
+import { MdArrowDownward, MdArrowUpward } from "react-icons/md"
+import { IoMdClock } from "react-icons/io";
 import { GiSunrise, GiSunset } from "react-icons/gi"
 import countries from 'i18n-iso-countries'
 import enLocale from 'i18n-iso-countries/langs/en.json'
@@ -14,12 +15,12 @@ const WeatherResults = ({ weatherResults, cityNotFound, timeAtLocation, sunriseT
   const { description, icon} = weather && weather[0] || {}
   const { temp, temp_max, temp_min } = main || {}
 
-  return (
-    <div className="weather__results">
+  return (<>
         {weatherResults && !cityNotFound &&
+        <div className="weather__results">
           <>
             <h2 className="cityName">{weatherResults.name}</h2>
-            <span className="country">{countries.getName(`${country}`, 'en')} </span>
+              <span className="country">{countries.getName(`${country}`, 'en')} </span>
               <div className="flex-align-justify-center weather__temperature">
                 <p
                   className="weather__current-temp">
@@ -49,12 +50,12 @@ const WeatherResults = ({ weatherResults, cityNotFound, timeAtLocation, sunriseT
             </div>
             <div className="weather__sunrise-sunset flex-align-justify-center">
               <p>
-                <MdAccessTime
-                size={32}
-                className="icon icon--memd"
-                />
-                {timeAtLocation}
-              </p>
+                  <IoMdClock
+                  size={40}
+                  className="icon icon--memd icon--clock"
+                  />
+                  <span className="time">{timeAtLocation}</span>
+                </p>
               <p><GiSunrise
                 size={40}
                 className="icon icon--memd sunrise"
@@ -70,8 +71,9 @@ const WeatherResults = ({ weatherResults, cityNotFound, timeAtLocation, sunriseT
             </div>
 
           </>
-        }
         </div>
+        }
+        </>
   )
 }
 
