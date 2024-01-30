@@ -1,12 +1,4 @@
 {
-  "scripts": {
-    "install-server": "cd Server && npm install",
-    "start-server": "cd Server && node index.js",
-    "install-client": "cd client && npm install",
-    "build-client": "cd client && npm run build",
-    "start-client": "cd client && npm run start"
-  },
-
   "dependencies": {
     "path": "^0.12.7",
     "weather-icons-react": "^1.2.0"
