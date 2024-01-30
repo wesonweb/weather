@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import './Form.css'
-import { BsArrowRightCircleFill } from "react-icons/bs";
 const Form = ({ location, setLocation, handleSubmit }) => {
   return (
     <>
@@ -21,11 +20,6 @@ const Form = ({ location, setLocation, handleSubmit }) => {
             className="location__input"
             autoFocus
             />
-          <button
-          className="location__submit"
-            onClick={handleSubmit}>
-            <BsArrowRightCircleFill />
-          </button>
         </form>
       </div>
     </>

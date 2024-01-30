@@ -1,14 +1,8 @@
-form.weather-form {
-  display: flex;
-}
-form input {
-  flex-grow: 1;
-}
+
 .subheading {
   font-size: 1.3rem;
   letter-spacing: 1px;
   margin-bottom: .5rem;
-  /* text-align: center; */
 }
 .flex {
   display: flex;
@@ -26,19 +20,7 @@ form input {
   font-size: 1rem;
   letter-spacing: 1px;
 }
-.location__submit {
-  color: inherit;
-  font-size: 1.65rem;
-  margin-top: .5rem;
-  display: flex;
-  align-items: center;
-  background: transparent;
-  padding: .75rem 1rem;
-  border: none;
-  box-shadow: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
+
 .visuallyhidden {
   display: none;
 }
