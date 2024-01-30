@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import './form.css'
+import './Form.css'
 const Form = ({ location, setLocation, handleSubmit }) => {
   return (
     <>
