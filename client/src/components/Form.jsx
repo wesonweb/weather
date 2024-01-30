@@ -20,7 +20,7 @@ const Form = ({ location, setLocation, handleSubmit }) => {
             className="location__input"
             autoFocus
             />
-            <input type="submit" className="visuallyhidden" />
+            <input type="submit" className="" />
         </form>
       </div>
     </>
