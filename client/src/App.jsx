@@ -30,10 +30,10 @@ function App() {
     e.preventDefault()
     location !== '' ? getWeather() : alert('Please enter a location')
   }
-
+  const SERVER_URL=import.meta.env.VITE_SERVER_URL
   const getWeather = async () => {
     try {
-      const weatherData = await fetch(`http://localhost:8800`, {
+      const weatherData = await fetch(`${SERVER_URL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
