@@ -33,7 +33,7 @@ function App() {
 
   const getWeather = async () => {
     try {
-      const weatherData = await fetch(`http://localhost:5550`, {
+      const weatherData = await fetch(`http://localhost:8800`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
