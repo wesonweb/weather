@@ -1,4 +1,8 @@
 {
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "cd ./server && node index.js"
+    },
   "dependencies": {
     "path": "^0.12.7",
     "weather-icons-react": "^1.2.0"
