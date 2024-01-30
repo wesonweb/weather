@@ -11,7 +11,7 @@ const Form = ({ location, setLocation, handleSubmit }) => {
             className="visuallyhidden"
             >Enter a location</label>
           <input
-            type="text"
+            type="search"
             name="location"
             id="location"
             onChange={e => setLocation(e.target.value)}
