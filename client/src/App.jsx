@@ -4,8 +4,9 @@ import Form from './components/Form'
 import WeatherResults from './components/WeatherResults'
 import WeatherIcon from './components/WeatherIcon'
 
-function App() {
+import toast from 'react-hot-toast'
 
+function App() {
   const [location, setLocation] = useState('')
   const [weatherResults, setWeatherResults] = useState(null)
   const [error, setError] = useState(false)
@@ -28,7 +29,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    location !== '' ? getWeather() : alert('Please enter a location')
+    location !== '' ? getWeather() : toast.error('Please enter a location')
   }
   const SERVER_URL=import.meta.env.VITE_SERVER_URL
   const getWeather = async () => {
