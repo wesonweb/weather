@@ -8,12 +8,15 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules/
+
 dist
 dist-ssr
 *.local
-
+.DS_Store
 # Editor directories and files
+client/.vscode
 .vscode/*
+.vscode/settings.json
 !.vscode/extensions.json
 .idea
 .DS_Store
